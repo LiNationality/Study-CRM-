@@ -1,0 +1,862 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="db" uuid="afa700f8-76d7-41ac-b75d-72ffbb3cbd5d">
+    <database-info product="SQLite" version="3.8.11" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <database-model serializer="dbm" rdbms="SQLITE" format-version="2.6">
+      <schema id="1">
+        <visible>1</visible>
+      </schema>
+      <table id="2" parent="1" name="auth_group"/>
+      <table id="3" parent="1" name="auth_group_permissions"/>
+      <table id="4" parent="1" name="auth_permission"/>
+      <table id="5" parent="1" name="auth_user"/>
+      <table id="6" parent="1" name="auth_user_groups"/>
+      <table id="7" parent="1" name="auth_user_user_permissions"/>
+      <table id="8" parent="1" name="django_admin_log"/>
+      <table id="9" parent="1" name="django_content_type"/>
+      <table id="10" parent="1" name="django_migrations"/>
+      <table id="11" parent="1" name="django_session"/>
+      <table id="12" parent="1" name="repository_article"/>
+      <table id="13" parent="1" name="repository_article2tag"/>
+      <table id="14" parent="1" name="repository_articledetail"/>
+      <table id="15" parent="1" name="repository_articletype"/>
+      <table id="16" parent="1" name="repository_blog"/>
+      <table id="17" parent="1" name="repository_category"/>
+      <table id="18" parent="1" name="repository_comment"/>
+      <table id="19" parent="1" name="repository_tag"/>
+      <table id="20" parent="1" name="repository_updown"/>
+      <table id="21" parent="1" name="repository_userfans"/>
+      <table id="22" parent="1" name="repository_userinfo"/>
+      <table id="23" parent="1" name="sqlite_sequence"/>
+      <column id="24" parent="2" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="25" parent="2" name="name">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(80) (2000000000,10)|12</data-type>
+      </column>
+      <key id="26" parent="2">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="27" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="28" parent="3" name="group_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="29" parent="3" name="permission_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <index id="30" parent="3" name="auth_group_permissions_8373b171">
+        <columns>permission_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="31" parent="3" name="auth_group_permissions_0e939a4f">
+        <columns>group_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="32" parent="3" name="auth_group_permissions_group_id_0cd325b0_uniq">
+        <columns>group_id
+permission_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="33" parent="3">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="34" parent="3" name="#FAKE_auth_group_permissions_1">
+        <columns>permission_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.auth_permission.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="35" parent="3" name="#FAKE_auth_group_permissions_2">
+        <columns>group_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.auth_group.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="36" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="37" parent="4" name="content_type_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="38" parent="4" name="codename">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(100) (2000000000,10)|12</data-type>
+      </column>
+      <column id="39" parent="4" name="name">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+      </column>
+      <index id="40" parent="4" name="auth_permission_417f1b1c">
+        <columns>content_type_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="41" parent="4" name="auth_permission_content_type_id_01ab375a_uniq">
+        <columns>content_type_id
+codename</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="42" parent="4">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="43" parent="4" name="#FAKE_auth_permission_1">
+        <columns>content_type_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.django_content_type.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="44" parent="5" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="45" parent="5" name="password">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(128) (2000000000,10)|12</data-type>
+      </column>
+      <column id="46" parent="5" name="last_login">
+        <data-type>DATETIME(2000000000,10)|12</data-type>
+      </column>
+      <column id="47" parent="5" name="is_superuser">
+        <mandatory>1</mandatory>
+        <data-type>BOOL(2000000000,10)|4</data-type>
+      </column>
+      <column id="48" parent="5" name="first_name">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(30) (2000000000,10)|12</data-type>
+      </column>
+      <column id="49" parent="5" name="last_name">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(30) (2000000000,10)|12</data-type>
+      </column>
+      <column id="50" parent="5" name="email">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(254) (2000000000,10)|12</data-type>
+      </column>
+      <column id="51" parent="5" name="is_staff">
+        <mandatory>1</mandatory>
+        <data-type>BOOL(2000000000,10)|4</data-type>
+      </column>
+      <column id="52" parent="5" name="is_active">
+        <mandatory>1</mandatory>
+        <data-type>BOOL(2000000000,10)|4</data-type>
+      </column>
+      <column id="53" parent="5" name="date_joined">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(2000000000,10)|12</data-type>
+      </column>
+      <column id="54" parent="5" name="username">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(150) (2000000000,10)|12</data-type>
+      </column>
+      <key id="55" parent="5">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="56" parent="6" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="57" parent="6" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="58" parent="6" name="group_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <index id="59" parent="6" name="auth_user_groups_0e939a4f">
+        <columns>group_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="60" parent="6" name="auth_user_groups_e8701ad4">
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="61" parent="6" name="auth_user_groups_user_id_94350c0c_uniq">
+        <columns>user_id
+group_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="62" parent="6">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="63" parent="6" name="#FAKE_auth_user_groups_1">
+        <columns>group_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.auth_group.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="64" parent="6" name="#FAKE_auth_user_groups_2">
+        <columns>user_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.auth_user.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="65" parent="7" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="66" parent="7" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="67" parent="7" name="permission_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <index id="68" parent="7" name="auth_user_user_permissions_8373b171">
+        <columns>permission_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="69" parent="7" name="auth_user_user_permissions_e8701ad4">
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="70" parent="7" name="auth_user_user_permissions_user_id_14a6b632_uniq">
+        <columns>user_id
+permission_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="71" parent="7">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="72" parent="7" name="#FAKE_auth_user_user_permissions_1">
+        <columns>permission_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.auth_permission.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="73" parent="7" name="#FAKE_auth_user_user_permissions_2">
+        <columns>user_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.auth_user.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="74" parent="8" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="75" parent="8" name="object_id">
+        <data-type>TEXT(2000000000,10)|12</data-type>
+      </column>
+      <column id="76" parent="8" name="object_repr">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(200) (2000000000,10)|12</data-type>
+      </column>
+      <column id="77" parent="8" name="action_flag">
+        <mandatory>1</mandatory>
+        <data-type>SMALLINT UNSIGNED(2000000000,10)|4</data-type>
+      </column>
+      <column id="78" parent="8" name="change_message">
+        <mandatory>1</mandatory>
+        <data-type>TEXT(2000000000,10)|12</data-type>
+      </column>
+      <column id="79" parent="8" name="content_type_id">
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="80" parent="8" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="81" parent="8" name="action_time">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(2000000000,10)|12</data-type>
+      </column>
+      <index id="82" parent="8" name="django_admin_log_e8701ad4">
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="83" parent="8" name="django_admin_log_417f1b1c">
+        <columns>content_type_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="84" parent="8">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="85" parent="8" name="#FAKE_django_admin_log_1">
+        <columns>user_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.auth_user.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="86" parent="8" name="#FAKE_django_admin_log_2">
+        <columns>content_type_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.django_content_type.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="87" parent="9" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="88" parent="9" name="app_label">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(100) (2000000000,10)|12</data-type>
+      </column>
+      <column id="89" parent="9" name="model">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(100) (2000000000,10)|12</data-type>
+      </column>
+      <index id="90" parent="9" name="django_content_type_app_label_76bd3d3b_uniq">
+        <columns>app_label
+model</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="91" parent="9">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="92" parent="10" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="93" parent="10" name="app">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+      </column>
+      <column id="94" parent="10" name="name">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+      </column>
+      <column id="95" parent="10" name="applied">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(2000000000,10)|12</data-type>
+      </column>
+      <key id="96" parent="10">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="97" parent="11" name="session_key">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(40) (2000000000,10)|12</data-type>
+      </column>
+      <column id="98" parent="11" name="session_data">
+        <mandatory>1</mandatory>
+        <data-type>TEXT(2000000000,10)|12</data-type>
+      </column>
+      <column id="99" parent="11" name="expire_date">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(2000000000,10)|12</data-type>
+      </column>
+      <index id="100" parent="11" name="django_session_de54fa62">
+        <columns>expire_date</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="101" parent="11">
+        <columns>session_key</columns>
+        <primary>1</primary>
+      </key>
+      <column id="102" parent="12" name="nid">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="103" parent="12" name="title">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(128) (2000000000,10)|12</data-type>
+      </column>
+      <column id="104" parent="12" name="summary">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+      </column>
+      <column id="105" parent="12" name="comment_count">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="106" parent="12" name="up_count">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="107" parent="12" name="down_count">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="108" parent="12" name="create_time">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(2000000000,10)|12</data-type>
+      </column>
+      <column id="109" parent="12" name="blog_id">
+        <mandatory>1</mandatory>
+        <data-type>BIGINT(2000000000,10)|4</data-type>
+      </column>
+      <column id="110" parent="12" name="article_type_id">
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="111" parent="12" name="category_id">
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="112" parent="12" name="read_count">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <index id="113" parent="12" name="repository_article_b583a629">
+        <columns>category_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="114" parent="12" name="repository_article_da909a66">
+        <columns>article_type_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="115" parent="12" name="repository_article_64458f32">
+        <columns>blog_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="116" parent="12">
+        <columns>nid</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="117" parent="12" name="#FAKE_repository_article_1">
+        <columns>category_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.repository_category.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="118" parent="12" name="#FAKE_repository_article_2">
+        <columns>article_type_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.repository_articletype.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="119" parent="12" name="#FAKE_repository_article_3">
+        <columns>blog_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.repository_blog.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="120" parent="13" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="121" parent="13" name="article_id">
+        <mandatory>1</mandatory>
+        <data-type>BIGINT(2000000000,10)|4</data-type>
+      </column>
+      <column id="122" parent="13" name="tag_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <index id="123" parent="13" name="repository_article2tag_76f094bc">
+        <columns>tag_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="124" parent="13" name="repository_article2tag_a00c1b00">
+        <columns>article_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="125" parent="13" name="repository_article2tag_article_id_cf5c5daf_uniq">
+        <columns>article_id
+tag_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="126" parent="13">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="127" parent="13" name="#FAKE_repository_article2tag_1">
+        <columns>tag_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.repository_tag.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="128" parent="13" name="#FAKE_repository_article2tag_2">
+        <columns>article_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.repository_article.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="129" parent="14" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="130" parent="14" name="content">
+        <mandatory>1</mandatory>
+        <data-type>TEXT(2000000000,10)|12</data-type>
+      </column>
+      <column id="131" parent="14" name="article_id">
+        <mandatory>1</mandatory>
+        <data-type>BIGINT(2000000000,10)|4</data-type>
+      </column>
+      <key id="132" parent="14">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="133" parent="14" name="#FAKE_repository_articledetail_1">
+        <columns>article_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.repository_article.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="134" parent="15" name="nid">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="135" parent="15" name="title">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(32) (2000000000,10)|12</data-type>
+      </column>
+      <column id="136" parent="15" name="blog_id">
+        <mandatory>1</mandatory>
+        <data-type>BIGINT(2000000000,10)|4</data-type>
+      </column>
+      <index id="137" parent="15" name="repository_category_64458f32">
+        <columns>blog_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="138" parent="15">
+        <columns>nid</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="139" parent="15" name="#FAKE_repository_articletype_1">
+        <columns>blog_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.repository_blog.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="140" parent="16" name="nid">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="141" parent="16" name="theme">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(32) (2000000000,10)|12</data-type>
+      </column>
+      <column id="142" parent="16" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>BIGINT(2000000000,10)|4</data-type>
+      </column>
+      <column id="143" parent="16" name="site">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(32) (2000000000,10)|12</data-type>
+      </column>
+      <column id="144" parent="16" name="title">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(64) (2000000000,10)|12</data-type>
+      </column>
+      <key id="145" parent="16">
+        <columns>nid</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="146" parent="16" name="#FAKE_repository_blog_1">
+        <columns>user_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.repository_userinfo.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="147" parent="17" name="nid">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="148" parent="17" name="title">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(32) (2000000000,10)|12</data-type>
+      </column>
+      <key id="149" parent="17">
+        <columns>nid</columns>
+        <primary>1</primary>
+      </key>
+      <column id="150" parent="18" name="nid">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="151" parent="18" name="content">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+      </column>
+      <column id="152" parent="18" name="create_time">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(2000000000,10)|12</data-type>
+      </column>
+      <column id="153" parent="18" name="article_id">
+        <mandatory>1</mandatory>
+        <data-type>BIGINT(2000000000,10)|4</data-type>
+      </column>
+      <column id="154" parent="18" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>BIGINT(2000000000,10)|4</data-type>
+      </column>
+      <column id="155" parent="18" name="reply_id">
+        <data-type>BIGINT(2000000000,10)|4</data-type>
+      </column>
+      <index id="156" parent="18" name="repository_comment_bbc2f847">
+        <columns>reply_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="157" parent="18" name="repository_comment_e8701ad4">
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="158" parent="18" name="repository_comment_a00c1b00">
+        <columns>article_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="159" parent="18">
+        <columns>nid</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="160" parent="18" name="#FAKE_repository_comment_1">
+        <columns>reply_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="161" parent="18" name="#FAKE_repository_comment_2">
+        <columns>user_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.repository_userinfo.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="162" parent="18" name="#FAKE_repository_comment_3">
+        <columns>article_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.repository_article.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="163" parent="19" name="nid">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="164" parent="19" name="title">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(32) (2000000000,10)|12</data-type>
+      </column>
+      <column id="165" parent="19" name="blog_id">
+        <mandatory>1</mandatory>
+        <data-type>BIGINT(2000000000,10)|4</data-type>
+      </column>
+      <index id="166" parent="19" name="repository_tag_64458f32">
+        <columns>blog_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="167" parent="19">
+        <columns>nid</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="168" parent="19" name="#FAKE_repository_tag_1">
+        <columns>blog_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.repository_blog.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="169" parent="20" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="170" parent="20" name="up">
+        <mandatory>1</mandatory>
+        <data-type>BOOL(2000000000,10)|4</data-type>
+      </column>
+      <column id="171" parent="20" name="article_id">
+        <mandatory>1</mandatory>
+        <data-type>BIGINT(2000000000,10)|4</data-type>
+      </column>
+      <column id="172" parent="20" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>BIGINT(2000000000,10)|4</data-type>
+      </column>
+      <index id="173" parent="20" name="repository_updown_e8701ad4">
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="174" parent="20" name="repository_updown_a00c1b00">
+        <columns>article_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="175" parent="20" name="repository_updown_article_id_0a17b878_uniq">
+        <columns>article_id
+user_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="176" parent="20">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="177" parent="20" name="#FAKE_repository_updown_1">
+        <columns>user_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.repository_userinfo.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="178" parent="20" name="#FAKE_repository_updown_2">
+        <columns>article_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.repository_article.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="179" parent="21" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="180" parent="21" name="follower_id">
+        <mandatory>1</mandatory>
+        <data-type>BIGINT(2000000000,10)|4</data-type>
+      </column>
+      <column id="181" parent="21" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>BIGINT(2000000000,10)|4</data-type>
+      </column>
+      <index id="182" parent="21" name="repository_userfans_e8701ad4">
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="183" parent="21" name="repository_userfans_6bde7ca3">
+        <columns>follower_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="184" parent="21" name="repository_userfans_user_id_9056a485_uniq">
+        <columns>user_id
+follower_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="185" parent="21">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="186" parent="21" name="#FAKE_repository_userfans_1">
+        <columns>user_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.repository_userinfo.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="187" parent="21" name="#FAKE_repository_userfans_2">
+        <columns>follower_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.repository_userinfo.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="188" parent="22" name="nid">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(2000000000,10)|4</data-type>
+      </column>
+      <column id="189" parent="22" name="username">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(32) (2000000000,10)|12</data-type>
+      </column>
+      <column id="190" parent="22" name="password">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(64) (2000000000,10)|12</data-type>
+      </column>
+      <column id="191" parent="22" name="nickname">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(32) (2000000000,10)|12</data-type>
+      </column>
+      <column id="192" parent="22" name="email">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(254) (2000000000,10)|12</data-type>
+      </column>
+      <column id="193" parent="22" name="avatar">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(100) (2000000000,10)|12</data-type>
+      </column>
+      <column id="194" parent="22" name="create_time">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(2000000000,10)|12</data-type>
+      </column>
+      <key id="195" parent="22">
+        <columns>nid</columns>
+        <primary>1</primary>
+      </key>
+      <column id="196" parent="23" name="name">
+        <data-type>(2000000000,10)|12</data-type>
+      </column>
+      <column id="197" parent="23" name="seq">
+        <data-type>(2000000000,10)|12</data-type>
+      </column>
+    </database-model>
+  </data-source>
+</component>

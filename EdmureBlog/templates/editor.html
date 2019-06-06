@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <h1>提交的文章内容：</h1>
+    <div class="article">
+
+    </div>
+
+    <h1>请输入内容</h1>
+    <div class="edit">
+        <form method="POST" action="/editor.html">
+            <input type="text" placeholder="博客url"/>
+            {% csrf_token %}
+            <textarea name="content"></textarea>
+            <input type="submit" value="提交" />
+        </form>
+
+    </div>
+    <script src="/static/js/jquery-1.12.4.js"></script>
+    <script src="/static/plugins/kindeditor/kindeditor-all.js"></script>
+    <script>
+        $(function () {
+            KindEditor.create('textarea[name="content"]',{
+                width : '700px',
+                height: '200px',
+                //items: ['source', '|', 'undo', 'redo', '|', 'preview', 'print', 'template', 'code', 'cut', 'copy', 'paste'],
+                //noDisableItems: ['source', 'print'],
+                //designMode: false,
+                resizeType: 1,
+                allowImageUpload: true,
+                allowImageRemote: true,
+                allowFlashUpload: false,
+                allowFileManager:true,
+                extraFileUploadParams : {
+                        csrfmiddlewaretoken : "{{ csrf_token }}"
+                },
+                filePostName: 'fafafa',
+                uploadJson: '/upload_file.html',
+                fileManagerJson: '/manager_file.html',
+                urlType: 'absolute'
+            })
+
+        })
+    </script>
+</body>
+</html>
